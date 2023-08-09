@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/BH.DotNet/.vs/BH.DotNet
+/BH.DotNet/BH.Api/bin/Debug/net6.0
+/BH.DotNet/BH.Api/obj
+/BH.DotNet/BH.Api/appsettings.Development.json
+/BH.DotNet/BH.Api/appsettings.json
