@@ -1,0 +1,29 @@
+﻿# Docker
+
+trigger:
+- main
+
+resources:
+- repo: self
+
+variables:
+  # Location of the Docker file
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  displayName: Build Docker image
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: Docker@2
+      inputs:
+        command: 'build'
+        Dockerfile: $(dockerfilePath)
+        tags: 'latest'
