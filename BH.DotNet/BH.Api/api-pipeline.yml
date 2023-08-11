@@ -7,9 +7,6 @@ resources:
 - repo: self
 
 variables:
-  # Location of the Docker file
-  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
