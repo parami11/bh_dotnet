@@ -25,5 +25,4 @@ stages:
     - task: Docker@2
       inputs:
         command: 'build'
-        Dockerfile: $(dockerfilePath)
-        tags: 'latest'
+        Dockerfile: '**/Dockerfile'
