@@ -12,14 +12,10 @@ namespace BH.Api
             // Add services to the container.
             builder.Services.AddSingleton<IEmployeeRepository>(options =>
             {
-                string url = builder.Configuration.GetSection("AzureCosmosDbSettings")
-                .GetValue<string>("URL");
-                string primaryKey = builder.Configuration.GetSection("AzureCosmosDbSettings")
-                .GetValue<string>("PrimaryKey");
-                string dbName = builder.Configuration.GetSection("AzureCosmosDbSettings")
-                .GetValue<string>("DatabaseName");
-                string containerName = builder.Configuration.GetSection("AzureCosmosDbSettings")
-                .GetValue<string>("ContainerName");
+                string url = builder.Configuration.GetValue<string>("Cosmos_Url");
+                string primaryKey = builder.Configuration.GetValue<string>("Cosmos_PrimaryKey");
+                string dbName = builder.Configuration.GetValue<string>("Cosmos_DatabaseName");
+                string containerName = builder.Configuration.GetValue<string>("Cosmos_ContainerName");
 
                 var cosmosClient = new CosmosClient(
                     url,
