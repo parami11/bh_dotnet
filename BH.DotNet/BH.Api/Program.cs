@@ -9,10 +9,13 @@ namespace BH.Api
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            Console.WriteLine("Start reading configs");
+            string url = builder.Configuration.GetValue<string>("Cosmos_Url");
+            Console.WriteLine($"Cosmos Url - {url}");
+
             // Add services to the container.
             builder.Services.AddSingleton<IEmployeeRepository>(options =>
             {
-                string url = builder.Configuration.GetValue<string>("Cosmos_Url");
                 string primaryKey = builder.Configuration.GetValue<string>("Cosmos_PrimaryKey");
                 string dbName = builder.Configuration.GetValue<string>("Cosmos_DatabaseName");
                 string containerName = builder.Configuration.GetValue<string>("Cosmos_ContainerName");
