@@ -15,6 +15,7 @@ namespace BH.Api.Service
         }
         public async Task<Employee> AddEmployee(Employee employee)
         {
+            employee.Id = Guid.NewGuid().ToString();
             var item = await _container.CreateItemAsync<Employee>(employee, new PartitionKey(employee.Id));
             return item;
         }
