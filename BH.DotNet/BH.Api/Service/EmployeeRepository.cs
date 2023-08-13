@@ -6,6 +6,12 @@ namespace BH.Api.Service
     public class EmployeeRepository : IEmployeeRepository
     {
         private readonly Container _container;
+
+        public EmployeeRepository()
+        {
+
+        }
+
         public EmployeeRepository(
             CosmosClient cosmosClient,
             string databaseName,
@@ -13,6 +19,7 @@ namespace BH.Api.Service
         {
             _container = cosmosClient.GetContainer(databaseName, containerName);
         }
+
         public async Task<Employee> AddEmployee(Employee employee)
         {
             employee.Id = Guid.NewGuid().ToString();

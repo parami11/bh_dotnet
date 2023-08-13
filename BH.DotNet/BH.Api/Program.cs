@@ -1,4 +1,8 @@
+using BH.Api.Models;
 using BH.Api.Service;
+using BH.Api.Utilities;
+using FluentValidation;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Azure.Cosmos;
 
 namespace BH.Api
@@ -28,6 +32,7 @@ namespace BH.Api
                 return new EmployeeRepository(cosmosClient, dbName, containerName);
             });
 
+            builder.Services.AddSingleton<IValidator<Employee>, EmployeeValidator>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
