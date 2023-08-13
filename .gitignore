@@ -9,3 +9,5 @@
 /BH.DotNet/BH.Api/appsettings.Development.json
 /BH.DotNet/BH.Api/appsettings.json
 /BH.DotNet/.vs/ProjectEvaluation
+/BH.DotNet/BH.Test/obj
+/BH.DotNet/BH.Test/bin/Debug/net6.0
