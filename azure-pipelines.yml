@@ -12,15 +12,6 @@ variables:
   tag: '$(Build.BuildId)'
 
 stages:
-- stage: test
-  jobs:
-    - job: test
-      steps:
-      - task: DotNetCoreCLI@2
-        inputs:
-          command: 'test'
-          projects: '**/*[Tt]est*/*.csproj'
-          publishTestResults: true
 - stage: Build
   displayName: Build image
   jobs:
@@ -29,6 +20,11 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'test'
+        projects: '**/*[Tt]est*/*.csproj'
+        publishTestResults: true
     - task: Docker@2
       displayName: Build an image
       inputs:
